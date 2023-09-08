@@ -1,0 +1,9 @@
+{
+	"name": "adfpruebaCSSFD",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d7d7adda-d3cc-4e33-ade7-7343d203d75f",
+		"tenantId": "406235a9-6330-48cf-ac14-93ca664e069d"
+	}
+}
