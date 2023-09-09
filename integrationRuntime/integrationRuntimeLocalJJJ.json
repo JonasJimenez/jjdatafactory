@@ -1,0 +1,7 @@
+{
+	"name": "integrationRuntimeLocalJJJ",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "Conexion Local JJJ"
+	}
+}
