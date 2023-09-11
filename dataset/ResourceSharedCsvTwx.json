@@ -1,16 +1,15 @@
 {
-	"name": "ContainerStorageCsvTwx",
+	"name": "ResourceSharedCsvTwx",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureBlobStorageCsvTwx",
+			"referenceName": "AzureFileStorageShared",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
-				"container": "container_csvtwx"
+				"type": "AzureFileStorageLocation"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

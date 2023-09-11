@@ -1,9 +1,9 @@
 {
-	"name": "GetWellTestShaya",
+	"name": "GetWellTestShayaShared",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy Data SHAYA to CSV For TWX",
+				"name": "Copy data1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -23,12 +23,12 @@
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings"
+							"type": "AzureFileStorageWriteSettings"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".csv"
+							"fileExtension": ".cvs"
 						}
 					},
 					"enableStaging": false,
@@ -49,7 +49,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ContainerStorageCsvTwx",
+						"referenceName": "ResourceSharedCsvTwx",
 						"type": "DatasetReference"
 					}
 				]
