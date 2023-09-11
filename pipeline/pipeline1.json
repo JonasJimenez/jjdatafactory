@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Copy Data Well",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -15,8 +15,19 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
 					"enableStaging": false
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "DbAvocetWell",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []

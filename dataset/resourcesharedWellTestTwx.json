@@ -9,7 +9,8 @@
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureFileStorageLocation"
+				"type": "AzureFileStorageLocation",
+				"folderPath": "WellTest"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
