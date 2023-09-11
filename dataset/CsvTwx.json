@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"container": "csvtwx"
+				"container": "container_csvtwx"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
