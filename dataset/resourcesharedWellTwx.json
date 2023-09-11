@@ -1,0 +1,22 @@
+{
+	"name": "resourcesharedWellTwx",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureFileStorageShared",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureFileStorageLocation",
+				"folderPath": "Well"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
