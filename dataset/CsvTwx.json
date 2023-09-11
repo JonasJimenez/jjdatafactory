@@ -1,0 +1,22 @@
+{
+	"name": "CsvTwx",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageCsvTwx",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "csvtwx"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
