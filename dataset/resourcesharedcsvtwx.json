@@ -1,5 +1,5 @@
 {
-	"name": "ResourceSharedCsvTwx",
+	"name": "resourcesharedcsvtwx",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureFileStorageShared",

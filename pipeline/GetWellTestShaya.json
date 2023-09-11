@@ -49,7 +49,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ContainerStorageCsvTwx",
+						"referenceName": "containerstoragecsvtwx",
 						"type": "DatasetReference"
 					}
 				]

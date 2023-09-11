@@ -49,7 +49,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ResourceSharedCsvTwx",
+						"referenceName": "resourcesharedcsvtwx",
 						"type": "DatasetReference"
 					}
 				]
