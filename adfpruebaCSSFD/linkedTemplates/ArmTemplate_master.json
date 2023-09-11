@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Cadena protegida para \"connectionString\"de \"AzureBlobStorageCsvTwx\""
 		},
+		"AzureFileStorageShared_connectionString": {
+			"type": "secureString",
+			"metadata": "Cadena protegida para \"connectionString\"de \"AzureFileStorageShared\""
+		},
 		"SqlServerLocalJJJ_connectionString": {
 			"type": "secureString",
 			"metadata": "Cadena protegida para \"connectionString\"de \"SqlServerLocalJJJ\""
@@ -44,6 +48,9 @@
 					},
 					"AzureBlobStorageCsvTwx_connectionString": {
 						"value": "[parameters('AzureBlobStorageCsvTwx_connectionString')]"
+					},
+					"AzureFileStorageShared_connectionString": {
+						"value": "[parameters('AzureFileStorageShared_connectionString')]"
 					},
 					"SqlServerLocalJJJ_connectionString": {
 						"value": "[parameters('SqlServerLocalJJJ_connectionString')]"

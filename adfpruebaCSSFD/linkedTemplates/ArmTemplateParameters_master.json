@@ -8,6 +8,9 @@
 		"AzureBlobStorageCsvTwx_connectionString": {
 			"value": ""
 		},
+		"AzureFileStorageShared_connectionString": {
+			"value": ""
+		},
 		"SqlServerLocalJJJ_connectionString": {
 			"value": ""
 		},
