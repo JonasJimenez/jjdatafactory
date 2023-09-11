@@ -1,5 +1,5 @@
 {
-	"name": "sqlservershaya",
+	"name": "DbAvocetWellTest",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SqlServerLocalJJJ",

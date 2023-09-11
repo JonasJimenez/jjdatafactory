@@ -1,0 +1,117 @@
+{
+	"name": "DbAvocetWell",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerLocalJJJ",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "START_DATETIME",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "END_DATETIME",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "WELL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WELL_ACTIVE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FIELD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PLATFORM",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ZONA",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TYPE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TYPE_TEXT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRODUCT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRODUCT_TEXT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "STATUS",
+				"type": "nvarchar"
+			},
+			{
+				"name": "STATUS_TEXT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ZONE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ZONE_TEXT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PAD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PAD_TEXT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LIFT_TYPE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LIFT_TYPE_TEXT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SPHEROID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SPHEROID_TEXT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LATITUDE",
+				"type": "decimal",
+				"precision": 28,
+				"scale": 12
+			},
+			{
+				"name": "LONGITUDE",
+				"type": "decimal",
+				"precision": 28,
+				"scale": 12
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BE_WELL"
+		}
+	}
+}

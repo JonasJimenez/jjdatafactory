@@ -43,7 +43,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "sqlservershaya",
+						"referenceName": "DbAvocetWellTest",
 						"type": "DatasetReference"
 					}
 				],
