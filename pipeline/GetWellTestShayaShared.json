@@ -28,7 +28,7 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".cvs"
+							"fileExtension": ".csv"
 						}
 					},
 					"enableStaging": false,
