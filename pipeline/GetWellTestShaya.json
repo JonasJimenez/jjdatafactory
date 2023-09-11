@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Copy Data SHAYA to CSV For TWX",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
