@@ -1,5 +1,5 @@
 {
-	"name": "SqlServerSHAYA",
+	"name": "sqlservershaya",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SqlServerLocalJJJ",
