@@ -58,10 +58,7 @@
 								"formatSettings": {
 									"type": "DelimitedTextWriteSettings",
 									"quoteAllText": true,
-									"fileExtension": {
-										"value": "@concat('Test_',string(pipeline().DataFactory),'.csv')",
-										"type": "Expression"
-									}
+									"fileExtension": ".txt"
 								}
 							},
 							"enableStaging": false,
@@ -279,6 +276,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureFileStorageLocation",
+						"fileName": {
+							"value": "@concat('Well_',formatDateTime(utcnow(),'yyyyMMdd'),'_',formatDateTime(utcnow(),'HHmmss'),'.csv')",
+							"type": "Expression"
+						},
 						"folderPath": "Well"
 					},
 					"columnDelimiter": ",",
