@@ -29,11 +29,7 @@
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": {
-								"value": "@concat('Test_',string(pipeline().DataFactory),'.csv')",
-								"type": "Expression"
-							}
+							"quoteAllText": true
 						}
 					},
 					"enableStaging": false,
