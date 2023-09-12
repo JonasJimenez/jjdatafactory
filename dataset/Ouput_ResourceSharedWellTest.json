@@ -10,6 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureFileStorageLocation",
+				"fileName": {
+					"value": "@concat('Well_Test_',formatDateTime(utcnow(),'yyyyMMdd'),'_',formatDateTime(utcnow(),'HHmmss'),'.csv')",
+					"type": "Expression"
+				},
 				"folderPath": "WellTest"
 			},
 			"columnDelimiter": ",",
