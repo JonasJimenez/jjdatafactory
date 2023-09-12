@@ -163,69 +163,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/InputDbAvocetWellTest')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SqlServerLocalJJJ",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "WELL",
-						"type": "nvarchar"
-					},
-					{
-						"name": "WELL_ACTIVE",
-						"type": "nvarchar"
-					},
-					{
-						"name": "COMPLETION",
-						"type": "nvarchar"
-					},
-					{
-						"name": "COMPLETION_ACTIVE",
-						"type": "nvarchar"
-					},
-					{
-						"name": "COMPLETION_STATUS",
-						"type": "nvarchar"
-					},
-					{
-						"name": "DATE_WELL_TEST",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "OIL_VOL",
-						"type": "float",
-						"precision": 15
-					},
-					{
-						"name": "GAS_VOL",
-						"type": "float",
-						"precision": 15
-					},
-					{
-						"name": "WATER_VOL",
-						"type": "float",
-						"precision": 15
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "BE_WELL_TEST"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/SqlServerLocalJJJ')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/Input_DbAvocet')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -277,7 +214,10 @@
 								"formatSettings": {
 									"type": "DelimitedTextWriteSettings",
 									"quoteAllText": true,
-									"fileExtension": ".csv"
+									"fileExtension": {
+										"value": "'Well_' + toString(currentDate()) + '.csv'",
+										"type": "Expression"
+									}
 								}
 							},
 							"enableStaging": false,
@@ -411,6 +351,7 @@
 						"typeProperties": {
 							"source": {
 								"type": "SqlServerSource",
+								"sqlReaderQuery": "SELECT WELL, WELL_ACTIVE, COMPLETION, COMPLETION_ACTIVE, COMPLETION_STATUS, DATE_WELL_TEST, OIL_VOL, GAS_VOL, WATER_VOL\nFROM [dbo].[BE_WELL_TEST]",
 								"queryTimeout": "02:00:00",
 								"partitionOption": "None"
 							},
@@ -437,7 +378,7 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "InputDbAvocetWellTest",
+								"referenceName": "Input_DbAvocet",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -458,8 +399,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/InputDbAvocetWellTest')]",
-				"[concat(variables('factoryId'), '/datasets/Ouput_containerstoragecsv')]"
+				"[concat(variables('factoryId'), '/datasets/Ouput_containerstoragecsv')]",
+				"[concat(variables('factoryId'), '/datasets/Input_DbAvocet')]"
 			]
 		}
 	]
