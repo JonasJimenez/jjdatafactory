@@ -1,5 +1,5 @@
 {
-	"name": "containerstoragecsvtwx",
+	"name": "Ouput_containerstoragecsv",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorageCsvTwx",
