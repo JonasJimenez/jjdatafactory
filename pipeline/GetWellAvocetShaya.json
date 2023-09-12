@@ -30,7 +30,10 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".csv"
+							"fileExtension": {
+								"value": "'Well_' + toString(currentDate()) + '.csv'",
+								"type": "Expression"
+							}
 						}
 					},
 					"enableStaging": false,
