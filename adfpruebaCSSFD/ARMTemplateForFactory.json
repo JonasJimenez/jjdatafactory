@@ -59,7 +59,7 @@
 									"type": "DelimitedTextWriteSettings",
 									"quoteAllText": true,
 									"fileExtension": {
-										"value": "@\"Well\" + string(dayOfMonth()) + \".csv\"",
+										"value": "@'Well' + string(dayOfMonth()) + '.csv'",
 										"type": "Expression"
 									}
 								}
@@ -243,8 +243,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Ouput_containerstoragecsv')]",
-				"[concat(variables('factoryId'), '/datasets/Input_DbAvocet')]"
+				"[concat(variables('factoryId'), '/datasets/Input_DbAvocet')]",
+				"[concat(variables('factoryId'), '/datasets/Ouput_containerstoragecsv')]"
 			]
 		},
 		{
