@@ -49,7 +49,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "resourcesharedWellTestTwx",
+						"referenceName": "Ouput_ResourceSharedWellTest",
 						"type": "DatasetReference"
 					}
 				]

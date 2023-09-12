@@ -1,5 +1,5 @@
 {
-	"name": "resourcesharedWellTestTwx",
+	"name": "Ouput_ResourceSharedWellTest",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureFileStorageShared",
