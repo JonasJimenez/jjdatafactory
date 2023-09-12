@@ -43,7 +43,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DbAvocetWellTest",
+						"referenceName": "InputDbAvocetWellTest",
 						"type": "DatasetReference"
 					}
 				],

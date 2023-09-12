@@ -1,5 +1,5 @@
 {
-	"name": "DbAvocetWell",
+	"name": "InputDbAvocetWell",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SqlServerLocalJJJ",

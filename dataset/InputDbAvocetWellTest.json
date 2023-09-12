@@ -1,5 +1,5 @@
 {
-	"name": "DbAvocetWellTest",
+	"name": "InputDbAvocetWellTest",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SqlServerLocalJJJ",
