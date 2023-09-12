@@ -1,0 +1,12 @@
+{
+	"name": "Input_DbAvocet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerLocalJJJ",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
