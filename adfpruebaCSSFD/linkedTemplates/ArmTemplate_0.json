@@ -4,20 +4,20 @@
 	"parameters": {
 		"factoryName": {
 			"type": "string",
-			"metadata": "Nombre de instancia de Data Factory",
+			"metadata": "Data Factory name",
 			"defaultValue": "adfpruebaCSSFD"
 		},
 		"AzureBlobStorageCsvTwx_connectionString": {
 			"type": "secureString",
-			"metadata": "Cadena protegida para \"connectionString\"de \"AzureBlobStorageCsvTwx\""
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorageCsvTwx'"
 		},
 		"AzureFileStorageShared_connectionString": {
 			"type": "secureString",
-			"metadata": "Cadena protegida para \"connectionString\"de \"AzureFileStorageShared\""
+			"metadata": "Secure string for 'connectionString' of 'AzureFileStorageShared'"
 		},
 		"SqlServerLocalJJJ_connectionString": {
 			"type": "secureString",
-			"metadata": "Cadena protegida para \"connectionString\"de \"SqlServerLocalJJJ\""
+			"metadata": "Secure string for 'connectionString' of 'SqlServerLocalJJJ'"
 		}
 	},
 	"variables": {
@@ -63,80 +63,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/containerstoragecsvtwx')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorageCsvTwx",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"container": "csvtwx"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorageCsvTwx')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/resourcesharedWellTestTwx')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureFileStorageShared",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureFileStorageLocation",
-						"folderPath": "WellTest"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureFileStorageShared')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SqlServerLocalJJJ')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"connectionString": "[parameters('SqlServerLocalJJJ_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "integrationRuntimeLocalJJJ",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntimeLocalJJJ')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/resourcesharedWellTwx')]",
+			"name": "[concat(parameters('factoryName'), '/Ouput_ResourceSharedWell')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -163,70 +90,80 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DbAvocetWellTest')]",
+			"name": "[concat(parameters('factoryName'), '/Ouput_ResourceSharedWellTest')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "SqlServerLocalJJJ",
+					"referenceName": "AzureFileStorageShared",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "WELL",
-						"type": "nvarchar"
-					},
-					{
-						"name": "WELL_ACTIVE",
-						"type": "nvarchar"
-					},
-					{
-						"name": "COMPLETION",
-						"type": "nvarchar"
-					},
-					{
-						"name": "COMPLETION_ACTIVE",
-						"type": "nvarchar"
-					},
-					{
-						"name": "COMPLETION_STATUS",
-						"type": "nvarchar"
-					},
-					{
-						"name": "DATE_WELL_TEST",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					},
-					{
-						"name": "OIL_VOL",
-						"type": "float",
-						"precision": 15
-					},
-					{
-						"name": "GAS_VOL",
-						"type": "float",
-						"precision": 15
-					},
-					{
-						"name": "WATER_VOL",
-						"type": "float",
-						"precision": 15
-					}
-				],
+				"type": "DelimitedText",
 				"typeProperties": {
-					"schema": "dbo",
-					"table": "BE_WELL_TEST"
-				}
+					"location": {
+						"type": "AzureFileStorageLocation",
+						"folderPath": "WellTest"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/SqlServerLocalJJJ')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureFileStorageShared')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DbAvocetWell')]",
+			"name": "[concat(parameters('factoryName'), '/Ouput_containerstoragecsv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorageCsvTwx",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "csvtwx"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorageCsvTwx')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SqlServerLocalJJJ')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"connectionString": "[parameters('SqlServerLocalJJJ_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntimeLocalJJJ",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntimeLocalJJJ')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/InputDbAvocetWell')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -348,13 +285,94 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/GetWellTestShaya')]",
+			"name": "[concat(parameters('factoryName'), '/InputDbAvocetWellTest')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SqlServerLocalJJJ",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "WELL",
+						"type": "nvarchar"
+					},
+					{
+						"name": "WELL_ACTIVE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "COMPLETION",
+						"type": "nvarchar"
+					},
+					{
+						"name": "COMPLETION_ACTIVE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "COMPLETION_STATUS",
+						"type": "nvarchar"
+					},
+					{
+						"name": "DATE_WELL_TEST",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "OIL_VOL",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "GAS_VOL",
+						"type": "float",
+						"precision": 15
+					},
+					{
+						"name": "WATER_VOL",
+						"type": "float",
+						"precision": 15
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "BE_WELL_TEST"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SqlServerLocalJJJ')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Input_DbAvocet')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SqlServerLocalJJJ",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SqlServerLocalJJJ')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/GetWellAvocetShaya')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy Data SHAYA to CSV For TWX",
+						"name": "Copy Data Well",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -368,13 +386,15 @@
 						"typeProperties": {
 							"source": {
 								"type": "SqlServerSource",
+								"sqlReaderQuery": "SELECT START_DATETIME, END_DATETIME, WELL, WELL_ACTIVE, FIELD, PLATFORM, ZONA, TYPE, TYPE_TEXT, PRODUCT, PRODUCT_TEXT, STATUS, STATUS_TEXT, ZONE, ZONE_TEXT, PAD, PAD_TEXT, LIFT_TYPE, LIFT_TYPE_TEXT, SPHEROID, SPHEROID_TEXT, LATITUDE, LONGITUDE\nFROM BE_WELL",
 								"queryTimeout": "02:00:00",
 								"partitionOption": "None"
 							},
 							"sink": {
 								"type": "DelimitedTextSink",
 								"storeSettings": {
-									"type": "AzureBlobStorageWriteSettings"
+									"type": "AzureFileStorageWriteSettings",
+									"copyBehavior": "FlattenHierarchy"
 								},
 								"formatSettings": {
 									"type": "DelimitedTextWriteSettings",
@@ -394,14 +414,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "DbAvocetWellTest",
+								"referenceName": "Input_DbAvocet",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "containerstoragecsvtwx",
+								"referenceName": "Ouput_ResourceSharedWell",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -415,8 +435,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DbAvocetWellTest')]",
-				"[concat(variables('factoryId'), '/datasets/containerstoragecsvtwx')]"
+				"[concat(variables('factoryId'), '/datasets/Input_DbAvocet')]",
+				"[concat(variables('factoryId'), '/datasets/Ouput_ResourceSharedWell')]"
 			]
 		},
 		{
@@ -466,14 +486,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "DbAvocetWellTest",
+								"referenceName": "InputDbAvocetWellTest",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "resourcesharedWellTestTwx",
+								"referenceName": "Ouput_ResourceSharedWellTest",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -487,18 +507,18 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DbAvocetWellTest')]",
-				"[concat(variables('factoryId'), '/datasets/resourcesharedWellTestTwx')]"
+				"[concat(variables('factoryId'), '/datasets/InputDbAvocetWellTest')]",
+				"[concat(variables('factoryId'), '/datasets/Ouput_ResourceSharedWellTest')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/GetWellAvocetShaya')]",
+			"name": "[concat(parameters('factoryName'), '/GetWellTestShaya_Container')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy Data Well",
+						"name": "Copy Data SHAYA to CSV For TWX",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -518,7 +538,7 @@
 							"sink": {
 								"type": "DelimitedTextSink",
 								"storeSettings": {
-									"type": "AzureFileStorageWriteSettings"
+									"type": "AzureBlobStorageWriteSettings"
 								},
 								"formatSettings": {
 									"type": "DelimitedTextWriteSettings",
@@ -538,14 +558,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "DbAvocetWell",
+								"referenceName": "InputDbAvocetWellTest",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "resourcesharedWellTwx",
+								"referenceName": "Ouput_containerstoragecsv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -559,8 +579,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DbAvocetWell')]",
-				"[concat(variables('factoryId'), '/datasets/resourcesharedWellTwx')]"
+				"[concat(variables('factoryId'), '/datasets/InputDbAvocetWellTest')]",
+				"[concat(variables('factoryId'), '/datasets/Ouput_containerstoragecsv')]"
 			]
 		}
 	]
