@@ -59,7 +59,7 @@
 									"type": "DelimitedTextWriteSettings",
 									"quoteAllText": true,
 									"fileExtension": {
-										"value": "@'Well' + string(dayOfMonth()) + '.csv'",
+										"value": "'Test_' + toString(currentDate()) + '.csv'",
 										"type": "Expression"
 									}
 								}
