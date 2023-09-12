@@ -17,6 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT START_DATETIME, END_DATETIME, WELL, WELL_ACTIVE, FIELD, PLATFORM, ZONA, TYPE, TYPE_TEXT, PRODUCT, PRODUCT_TEXT, STATUS, STATUS_TEXT, ZONE, ZONE_TEXT, PAD, PAD_TEXT, LIFT_TYPE, LIFT_TYPE_TEXT, SPHEROID, SPHEROID_TEXT, LATITUDE, LONGITUDE\nFROM BE_WELL",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -44,7 +45,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "InputDbAvocetWell",
+						"referenceName": "Input_DbAvocet",
 						"type": "DatasetReference"
 					}
 				],
