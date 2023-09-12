@@ -31,7 +31,7 @@
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
 							"fileExtension": {
-								"value": "'Test_' + toString(currentDate()) + '.csv'",
+								"value": "@concat('Test_',string(pipeline().DataFactory),'.csv')",
 								"type": "Expression"
 							}
 						}
