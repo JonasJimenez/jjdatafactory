@@ -17,6 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT WELL, WELL_ACTIVE, COMPLETION, COMPLETION_ACTIVE, COMPLETION_STATUS, DATE_WELL_TEST, OIL_VOL, GAS_VOL, WATER_VOL\nFROM [dbo].[BE_WELL_TEST]",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -43,7 +44,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "InputDbAvocetWellTest",
+						"referenceName": "Input_DbAvocet",
 						"type": "DatasetReference"
 					}
 				],
