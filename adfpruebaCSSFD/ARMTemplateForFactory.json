@@ -4,20 +4,20 @@
 	"parameters": {
 		"factoryName": {
 			"type": "string",
-			"metadata": "Data Factory name",
+			"metadata": "Nombre de instancia de Data Factory",
 			"defaultValue": "adfpruebaCSSFD"
 		},
 		"AzureBlobStorageCsvTwx_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorageCsvTwx'"
+			"metadata": "Cadena protegida para \"connectionString\"de \"AzureBlobStorageCsvTwx\""
 		},
 		"AzureFileStorageShared_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureFileStorageShared'"
+			"metadata": "Cadena protegida para \"connectionString\"de \"AzureFileStorageShared\""
 		},
 		"SqlServerLocalJJJ_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'SqlServerLocalJJJ'"
+			"metadata": "Cadena protegida para \"connectionString\"de \"SqlServerLocalJJJ\""
 		}
 	},
 	"variables": {
@@ -119,7 +119,7 @@
 						"typeProperties": {
 							"source": {
 								"type": "SqlServerSource",
-								"sqlReaderQuery": "SELECT WELL, WELL_ACTIVE, COMPLETION, COMPLETION_ACTIVE, COMPLETION_STATUS, DATE_WELL_TEST, OIL_VOL, GAS_VOL, WATER_VOL\nFROM [dbo].[BE_WELL_TEST]",
+								"sqlReaderQuery": "SELECT WELL, WELL_ACTIVE, COMPLETION, COMPLETION_ACTIVE, COMPLETION_STATUS, DATE_WELL_TEST, OIL_VOL, GAS_VOL, WATER_VOL, PLATAFORMA, PAD\nFROM [dbo].[BE_WELL_TEST]",
 								"queryTimeout": "02:00:00",
 								"partitionOption": "None"
 							},
